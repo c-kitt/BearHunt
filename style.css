@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+
+:root {
+    --brown-parchment: hsl(22, 20%, 12%);
+    --brown-dark: hsl(30, 20%, 85%);
+    --brown-red: hsl(351, 68%, 48%);
+    --brown-light: hsl(22, 15%, 20%);
+    
+    --background: hsl(22, 20%, 10%);
+    --foreground: hsl(30, 20%, 90%);
+    --card: hsl(22, 20%, 14%);
+    --border: hsl(22, 15%, 25%);
+    --input: hsl(22, 15%, 25%);
+    --muted: hsl(22, 15%, 25%);
+    --accent: hsl(351, 68%, 48%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Serif Pro', 'Times New Roman', serif;
+    line-height: 1.5;
+    color: var(--foreground);
+    background: var(--background);
+    padding: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--brown-red);
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--muted);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--accent);
+    width: 20%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.step-counter {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+    font-size: 1rem;
+}
+
+.question {
+    display: none;
+    padding: 1.5rem;
+    background: var(--card);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.question.active {
+    display: block;
+}
+
+.question h3 {
+    margin-bottom: 1.25rem;
+    color: var(--brown-red);
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.option {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--card);
+    text-align: center;
+    color: var(--foreground);
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+.option:hover {
+    background: var(--muted);
+    border-color: var(--accent);
+}
+
+.option.selected {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.multi-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.interests-section {
+    margin-top: 1rem;
+}
+
+.interests-category {
+    margin-bottom: 1.25rem;
+}
+
+.interests-category h4 {
+    color: var(--foreground);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.next-btn, .find-jobs-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-family: inherit;
+    transition: background 0.2s ease;
+    min-width: 120px;
+    font-weight: 500;
+}
+
+.next-btn:hover, .find-jobs-btn:hover {
+    background: hsl(351, 68%, 55%);
+}
+
+.next-btn:disabled, .find-jobs-btn:disabled {
+    background: var(--muted);
+    cursor: not-allowed;
+}
+
+.results {
+    margin-top: 3rem;
+}
+
+.job-card {
+    background: var(--card);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.job-title {
+    color: var(--brown-red);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.job-details {
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.job-description {
+    margin-top: 0.75rem;
+    line-height: 1.4;
+    color: var(--foreground);
+    font-size: 0.85rem;
+}
+
+.match-score {
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    float: right;
+    font-weight: 500;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--foreground);
+}
+
+.hidden {
+    display: none;
+}
+
+.similar-btn {
+    background: var(--muted);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.similar-btn:hover {
+    background: var(--border);
+}
+
+.actions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.action-btn {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .options, .multi-select {
+        grid-template-columns: 1fr;
+    }
+    
+    .question {
+        padding: 1.25rem;
+    }
+    
+    .option {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}

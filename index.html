@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brown Job Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Brown Job Finder</h1>
+
+    <div id="questionnaire">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="step-counter">
+            <span id="currentStep">1</span> of 4
+        </div>
+
+        <div class="question active" id="question1">
+            <h3>How many hours per week do you want to work?</h3>
+            <div class="options" data-question="hours">
+                <div class="option" data-value="light">Light commitment (1-8 hours)</div>
+                <div class="option" data-value="moderate">Moderate commitment (9-15 hours)</div>
+                <div class="option" data-value="heavy">Heavy commitment (16+ hours)</div>
+                <div class="option" data-value="flexible">I'm flexible</div>
+            </div>
+            <button class="next-btn" onclick="nextQuestion()" disabled>Next</button>
+        </div>
+
+        <div class="question" id="question2">
+            <h3>What's your preferred hourly pay range?</h3>
+            <div class="options" data-question="pay">
+                <div class="option" data-value="budget">Budget-friendly ($15-16/hr)</div>
+                <div class="option" data-value="fair">Fair wage ($16-17/hr)</div>
+                <div class="option" data-value="premium">Premium pay ($17+/hr)</div>
+                <div class="option" data-value="any">Pay doesn't matter</div>
+            </div>
+            <button class="next-btn" onclick="nextQuestion()" disabled>Next</button>
+        </div>
+
+        <div class="question" id="question3">
+            <h3>What type of work interests you most?</h3>
+            <div class="options" data-question="workType">
+                <div class="option" data-value="research">Research (labs, data analysis, experiments)</div>
+                <div class="option" data-value="teaching">Teaching/Tutoring (helping other students)</div>
+                <div class="option" data-value="administrative">Administrative (office work, organization)</div>
+                <div class="option" data-value="technical">Technical/IT (computers, web, software)</div>
+                <div class="option" data-value="creative">Creative/Library (writing, media, books)</div>
+                <div class="option" data-value="any">I'm open to anything</div>
+            </div>
+            <button class="next-btn" onclick="nextQuestion()" disabled>Next</button>
+        </div>
+
+        <div class="question" id="question4">
+            <h3>What academic areas interest you? (Select multiple)</h3>
+            <div class="interests-section">
+                <div class="interests-category">
+                    <h4>STEM & Sciences</h4>
+                    <div class="options multi-select" data-question="interests">
+                        <div class="option" data-value="biology">Biology/Life Sciences</div>
+                        <div class="option" data-value="chemistry">Chemistry</div>
+                        <div class="option" data-value="physics">Physics/Astronomy</div>
+                        <div class="option" data-value="computer">Computer Science</div>
+                        <div class="option" data-value="engineering">Engineering</div>
+                        <div class="option" data-value="math">Math/Statistics</div>
+                        <div class="option" data-value="earth">Earth/Environmental</div>
+                        <div class="option" data-value="medicine">Medicine/Health</div>
+                    </div>
+                </div>
+                <div class="interests-category">
+                    <h4>Social Sciences & Humanities</h4>
+                    <div class="options multi-select" data-question="interests">
+                        <div class="option" data-value="psychology">Psychology</div>
+                        <div class="option" data-value="history">History</div>
+                        <div class="option" data-value="english">English/Literature</div>
+                        <div class="option" data-value="philosophy">Philosophy/Religion</div>
+                        <div class="option" data-value="sociology">Sociology/Anthropology</div>
+                        <div class="option" data-value="political">Political Science</div>
+                        <div class="option" data-value="economics">Economics/Business</div>
+                        <div class="option" data-value="art">Art/Visual Arts</div>
+                        <div class="option" data-value="music">Music/Theatre</div>
+                    </div>
+                </div>
+                <div class="interests-category">
+                    <h4>Professional & Applied</h4>
+                    <div class="options multi-select" data-question="interests">
+                        <div class="option" data-value="education">Education/Teaching</div>
+                        <div class="option" data-value="health">Public Health</div>
+                        <div class="option" data-value="library">Library/Information</div>
+                        <div class="option" data-value="athletics">Athletics/Recreation</div>
+                        <div class="option" data-value="administration">Administration</div>
+                        <div class="option" data-value="research">Research Centers</div>
+                    </div>
+                </div>
+                <div class="interests-category">
+                    <div class="options" data-question="interests">
+                        <div class="option" data-value="open">I'm open to anything</div>
+                    </div>
+                </div>
+            </div>
+            <button class="find-jobs-btn" onclick="findJobs()" disabled>Find My Perfect Jobs</button>
+        </div>
+    </div>
+
+    <div id="results" class="results hidden">
+        <div class="actions">
+            <button class="action-btn" onclick="showMore()">See More Jobs</button>
+            <button class="action-btn" onclick="startOver()">Start Over</button>
+        </div>
+        <div id="jobList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
